@@ -11,7 +11,8 @@ We are producing a trivia focused / Jeopardy or Who Wants to Be a Millionaire* s
 
 1. Using [Pushshift's](https://github.com/pushshift/api) API, we collect posts from two subreddits.
 2. We use NLP to train a classifier on which subreddit a given post came from.
-
+  
+---
 
 ### Data sources
 
@@ -19,6 +20,11 @@ The following Reddits were scraped:
 
 * [Movie Details](https://www.reddit.com/r/MovieDetails/)
 * [Sh**ty Movie Details](https://www.reddit.com/r/shittymoviedetails/)
+
+
+#### Note on the data and style
+
+Strong language may appear in various Reddit posts in raw form. To the extent possible, it shall be cleaned in the course of the project. There also may be some humor used throughout the presentation of the analysis.
 
 ---
 

@@ -6,6 +6,7 @@ We are producing a trivia focused / Jeopardy or Who Wants to Be a Millionaire* s
 
 *(trademarks of their appropiate productions) 
 
+![](https://www.bigraildiversity.co.uk/wp-content/uploads/2018/10/Night-at-the-Movies-Converted-900x600.png)
 
 ### Primary techniques
 

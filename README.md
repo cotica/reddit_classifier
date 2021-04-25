@@ -51,4 +51,5 @@ _Insert key findings: word count / frequency, sentiment analysis._
 
 ### Presentation and report
 
-_To be linked here_
+* [`Report`](./code/Project-3-Scraping-Subreddits-orig.ipynb)
+* [Slides](https://docs.google.com/presentation/d/1774txe5GKxSPmvsxLAopb4RNMH6vJHXzSnMIYKXwLMk/edit?usp=sharing)

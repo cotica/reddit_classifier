@@ -29,13 +29,37 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 ---
 
-### Pre-processing, EDA and modeling flow
+### Scraping, pre-processing, cleaning & EDA
 
-* We gather and prepare data using the `requests` library and PushShift API, collecting _X_ posts
+* We gather and prepare data using the `requests` library and PushShift API, collecting initally around 10,000 posts from each subReddit on the following columns:
+
+-- `selftext`
+
+-- `author`
+
+-- `title`
+
+-- `subreddit`
+
+-- `created_utc` (as well as a derived human-readable equivalent, `timestamp`)
+
+-- `is_self`
+
+-- `score`
+
+-- `numcomments`
+
+
+* We strip the data of any duplicates as well as reposts
+* We remove spammy and dominant authors
 * We use _count vectorizer_ to count up words in our resulting data sets
-* We strip the data of ____
 * We conduct some sentiment analysis using _____
 * We analyze the word count in each subReddit.
+
+---
+
+### Modeling
+
 * We select the following features to train on: ______
 * We model using Logistic Regression and KNN
 * Grid search is used to improve parameters and performance, ultimately resulting in ____ being selected for the final model.

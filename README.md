@@ -47,7 +47,7 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 -- `score`
 
--- `numcomments`
+-- `num_comments`
 
 
 * We strip the data of any duplicates as well as reposts

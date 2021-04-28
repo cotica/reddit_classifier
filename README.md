@@ -20,7 +20,7 @@ We are producing a trivia focused / Jeopardy or Who Wants to Be a Millionaire* s
 The following Reddits were scraped:
 
 * [Movie Details](https://www.reddit.com/r/MovieDetails/)
-* [Sh-tty Movie Details](https://www.reddit.com/r/shittymoviedetails/)
+* [💩Sh-tty Movie Details💩](https://www.reddit.com/r/shittymoviedetails/)
 * [Movies](https://www.reddit.com/r/movies/)
 
 

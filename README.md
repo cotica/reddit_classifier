@@ -31,7 +31,7 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 ### Scraping, pre-processing, cleaning & EDA
 
-* We gather and prepare data using the `requests` library and PushShift API, collecting initally around 10,000 posts from each subReddit on the following columns:
+* We gather and prepare data using the `requests` library and PushShift API, collecting initally close to 8,000 - 10,000 posts from each subReddit on the following columns:
 
 -- `selftext`
 
@@ -50,8 +50,17 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 -- `num_comments`
 
 
-* We strip the data of any duplicates as well as reposts
+* We strip the data of any duplicates as well as reposts during the import.
+* We drop rows where self text is marked as deleted or removed. This comprises about 1% of our data and is negligible.
+* We impute null text with just spaces
+* We further strip the text columns of nonsense content, such as links
 * We remove spammy and dominant authors
+
+--- 
+
+### Transformations and readiness for modeling
+
+* We use a combined title-selftext column to equally distribute the weight between posts with and without selftext.
 * We use _count vectorizer_ to count up words in our resulting data sets
 * We conduct some sentiment analysis using _____
 * We analyze the word count in each subReddit.

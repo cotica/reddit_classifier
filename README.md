@@ -82,15 +82,15 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 _Insert key findings: word count / frequency, sentiment analysis._
 
-* Average post length by subreddit:
+* Average post length varies significantly by subreddit:
 
 ![Post length](./images/post_length.png)
 
-* Most frequently occurring words in our subreddits:
+* Most frequently occurring words in our subreddits, by themselves, are pretty boring:
 
 ![Word freq](./images/word_freq.png)
 
-* Most common bigrams:
+* But! Most common bigrams start to show more sentiment and personality of our posters:
 
 ![Bigrams](./images/bigrams.png)
 

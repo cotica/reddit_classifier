@@ -50,18 +50,17 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 -- `num_comments`
 
-
 * We strip the data of any duplicates as well as reposts during the import.
 * We drop rows where self text is marked as deleted or removed. This comprises about 1% of our data and is negligible.
 * We impute null text with just spaces
-* We further strip the text columns of nonsense content, such as links
-* We remove spammy and dominant authors
+* We further strip the text columns of nonsense content, such as links, and junk, including space breaks that have made their way into the comment fields
+* _If time: We remove spammy and dominant authors as outliers, as well as emoji_
 
 --- 
 
 ### Transformations and readiness for modeling
 
-* We use a combined title-selftext column to equally distribute the weight between posts with and without selftext.
+* _If time: We use a combined title-selftext column to equally distribute the weight between posts with and without selftext._
 * We use _count vectorizer_ to count up words in our resulting data sets
 * We conduct some sentiment analysis using _____
 * We analyze the word count in each subReddit.
@@ -80,6 +79,10 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 ### Key findings and recommendations
 
 _Insert key findings: word count / frequency, sentiment analysis._
+
+Average post length by subreddit:
+
+![Post length](./images/post_length.png)
 
 ---
 

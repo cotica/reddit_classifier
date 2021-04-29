@@ -2,7 +2,7 @@
 
 ### Problem statement
 
-We are producing a trivia focused / Jeopardy or Who Wants to Be a Millionaire* style game show, where we want the audience to guess the source of the movie details. Everything is scrambled together! The task: figure out if the details came from good movie details, or whether the movie production team took a shorcut and landed in _Sh**ty Movie Details_!
+We are producing a trivia focused / Jeopardy or Who Wants to Be a Millionaire* style game show, where we want the audience to guess the source of the movie details. Everything is scrambled together! The task: figure out if the details came from good movie details, or whether the movie production team took a shorcut and landed in _Sh*tty Movie Details_!
 
 *_Trademarks of their appropriate productions_
 

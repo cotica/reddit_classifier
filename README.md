@@ -2,7 +2,7 @@
 
 ### Problem statement
 
-We are producing a trivia focused / Jeopardy or Who Wants to Be a Millionaire* style game show, where we want the audience to guess the source of the movie details. Everything is scrambled together! The task: figure out if the details came from good movie details, or whether the movie production team took a shorcut and landed in _Sh**ty Movie Details_!
+We are producing a trivia focused / Jeopardy or Who Wants to Be a Millionaire* style game show, where we want the audience to guess the source of the movie details. Everything is scrambled together! The task: figure out if the details came from good movie details, or whether the movie production team took a shorcut and landed in Sh-tty Movie Details!
 
 *_Trademarks of their appropriate productions_
 
@@ -50,27 +50,29 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 -- `num_comments`
 
-* We strip the data of any duplicates as well as reposts during the import.
-* We drop rows where self text is marked as deleted or removed. This comprises about 1% of our data and is negligible.
-* We impute null text with just spaces
-* We further strip the text columns of nonsense content, such as links, and junk, including space breaks that have made their way into the comment fields
-* _If time: We remove spammy and dominant authors as outliers, as well as emoji_
+* We strip the data of any duplicates during the import using `.drop_duplicates`. However, we wind up retaining reposts, in order to avoid running into a data sparsity problem. (On attempt to filter out non-original posts, our data size shrank 20-fold!)
+* We merge everything into a single dataframe, using `pd.concat`
+* We drop rows where self text is marked as [deleted] or [removed]. This comprises about 1% of our data and is negligible.
+* We impute missing text with just spaces
+* We further strip the text columns of nonsense content, such as links, and junk, including space breaks that have made their way into the comment fields, as well as emoji and non-Latin alphabet or numeric characters, using `RegEx`.
+* _If time: We remove spammy and dominant authors as outliers_
 
 --- 
 
 ### Transformations and readiness for modeling
 
 * _If time: We use a combined title-selftext column to equally distribute the weight between posts with and without selftext._
-* We use _count vectorizer_ to count up words in our resulting data sets
+* We use `CountVectorizer` to count up words in our joint datafame
+* We run analysis on the length of our posts, author dominance and uniqueness, and distrubution of comment volumes
+* We analyze the word count in each subReddit
+* We look at bigrams and word frequencies in our subreddit data
 * We conduct some sentiment analysis using _____
-* We analyze the word count in each subReddit.
 
 ---
 
 ### Modeling
 
-* We select the following features to train on: ______
-* We model using Logistic Regression and KNN
+* We model using Random Forest and ___
 * Grid search is used to improve parameters and performance, ultimately resulting in ____ being selected for the final model.
 * We score the models using ____
   
@@ -87,6 +89,10 @@ _Insert key findings: word count / frequency, sentiment analysis._
 * Most frequently occurring words in our subreddits:
 
 ![Word freq](./images/word_freq.png)
+
+* Most common bigrams:
+
+![Bigrams](./images/bigrams.png)
 
 ---
 

@@ -80,9 +80,13 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 _Insert key findings: word count / frequency, sentiment analysis._
 
-Average post length by subreddit:
+* Average post length by subreddit:
 
 ![Post length](./images/post_length.png)
+
+* Most frequently occurring words in our subreddits:
+
+![Word freq](./images/word_freq.png)
 
 ---
 

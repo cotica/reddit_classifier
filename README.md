@@ -94,6 +94,10 @@ _Insert key findings: word count / frequency, sentiment analysis._
 
 ![Bigrams](./images/bigrams.png)
 
+* Sentiment
+
+![Sentiment](./images/sentiment.jpg)
+
 ---
 
 ### Presentation and report

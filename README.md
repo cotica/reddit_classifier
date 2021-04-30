@@ -21,7 +21,6 @@ The following Reddits were scraped:
 
 * [Movie Details](https://www.reddit.com/r/MovieDetails/)
 * [💩Sh-tty Movie Details💩](https://www.reddit.com/r/shittymoviedetails/)
-* [Movies](https://www.reddit.com/r/movies/)
 
 
 #### Note on the data and style
@@ -30,7 +29,7 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 ---
 
-### Scraping, pre-processing, cleaning & EDA
+### Scraping, cleaning & EDA
 
 * We gather and prepare data using the `requests` library and PushShift API, collecting initally close to 8,000 - 10,000 posts from each subReddit on the following columns:
 
@@ -55,32 +54,35 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 * We drop rows where self text is marked as [deleted] or [removed]. This comprises about 1% of our data and is negligible.
 * We impute missing text with just spaces
 * We further strip the text columns of nonsense content, such as links, and junk, including space breaks that have made their way into the comment fields, as well as emoji and non-Latin alphabet or numeric characters, using `RegEx`.
-* _If time: We remove spammy and dominant authors as outliers_
 
 --- 
 
-### Transformations and readiness for modeling
+### Transformations, preprocessing and NLP
 
-* _If time: We use a combined title-selftext column to equally distribute the weight between posts with and without selftext._
+* We use a combined title-selftext column to equally distribute the weight between posts with and without selftext.
 * We use `CountVectorizer` to count up words in our joint datafame
 * We run analysis on the length of our posts, author dominance and uniqueness, and distrubution of comment volumes
-* We analyze the word count in each subReddit
+* We analyze the word count of over 100K words across the subreddits.
 * We look at bigrams and word frequencies in our subreddit data
-* We conduct some sentiment analysis using _____
+* We conduct some sentiment analysis using `VADER`.
 
 ---
 
 ### Modeling
 
-* We model using Random Forest and ___
-* Grid search is used to improve parameters and performance, ultimately resulting in ____ being selected for the final model.
-* We score the models using ____
+* We model using Random Forest and ___ to get a good variety of predictive analysis and interpretability.
+* Grid search is used to improve parameters and performance, ultimately resulting in little difference to the scores.
+* We score the models using a very classification metrics, including accuracy, precision, and sensitivity.
+* We pick our untuned random forest as the best model, based on the scores.
   
 ---
 
 ### Key findings and recommendations
 
-_Insert key findings: word count / frequency, sentiment analysis._
+* An average author makes 2 subreddit posts 
+* Each post has 2 comments on average
+* The vast majority -- over 90% -- of all posts are reposts or reshares
+* When accounting for upvotes and downvotes, posts in our subreddits score 90 on average. _See: [What do Reddit post scores mean?](https://www.reddit.com/wiki/faq#wiki_how_is_a_submission.27s_score_determined.3F)
 
 * Average post length varies significantly by subreddit:
 
@@ -94,9 +96,19 @@ _Insert key findings: word count / frequency, sentiment analysis._
 
 ![Bigrams](./images/bigrams.png)
 
-* Sentiment
+* Sentiment - Interesting, interesting! We may have our first strong signal and indication of separation between our subreddits here. It seems that our Sh-tty Movies, unsurprisingly, contain a bit more negative content. But surprisingly, they also contain a lot more mixed content. The amount of positive content is about identical across the subreddits.
 
 ![Sentiment](./images/sentiment.jpg)
+
+_Forest visualization_
+
+We chose to keep our data composition simple and train primarily on our primary text field as well as post sentiment, to predict the target (i.e., which subreddit a post is likely to have come from). As we saw, details like post length and number of comments were barely distinguishable between the classes, and based on the total size of the reddit, the number of authors would be a little disproportionate across the subreddits, hence not a true signal of how the data might perform based on just that skew.
+
+Ultimately our classes were distributed pretty evenly.
+
+Based on our accuracy score, the model was 70% accurate at predicting the right class; which is bettre than the 50/50 baseline shot, since we did not really have a strong majority class to start out. We think that the random forest model had decent predictive power, but ultimately, our topics are just too similar for this model to predict very well.
+
+For our game of trivia, fun may be the more important factor than model accuracy, and this is not a model worthy of production.
 
 ---
 

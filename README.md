@@ -126,7 +126,7 @@ We chose to keep our data composition simple and train primarily on our joint ti
 
 Ultimately our classes were distributed pretty evenly.
 
-Based on our accuracy score, our tuned Random Forest model was 69% accurate at predicting the right class; which is better than the 50/50 baseline shot, since we did not really have a strong majority class to start out. We think that the random forest model had decent predictive power, but ultimately, our topics are just too similar for this model to predict very well.
+Based on our accuracy score, our tuned Random Forest model was 69% accurate at predicting the right class; which is better than the 50/50 baseline shot, since we did not really have a strong majority class to start out, and this was the best of the models fit, beating the hyper-parameterized and tuned decision tree model's 60% accuracy. We think that the random forest model had decent predictive power, but ultimately, our topics are just too similar for any model to predict very well.
 
 For our game of trivia, fun may be the more important factor than model accuracy, and this is not a model worthy of production.
 

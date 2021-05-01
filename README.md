@@ -74,12 +74,14 @@ Strong language may appear in various Reddit posts in raw form. To the extent po
 
 * We model using Random Forest and Decision Trees, to get a good variety of predictive analysis and interpretability.
 * Grid search is used to improve parameters and performance, ultimately resulting in little difference to the scores but helping reduce the overfit.
-* We score the models using standard classification metrics, including accuracy.
+* We extract feature importances from the random forest model
+* We score the models using standard classification metrics, including accuracy
+* For the tree, gini scores are revealed and reviewed, using a tree visualizer.
 * We pick our tuned random forest as the best model, based on the scores.
   
 ---
 
-### Key findings and recommendations
+### Key findings and recommendations from the models
 
 * An average author makes 2 subreddit posts 
 * Each post has 2 comments on average
@@ -107,6 +109,18 @@ In part, there may be less than stellar aha!s here, because we do have some nois
 * Tree visualization
 
 ![Tree](./images/tree.png)
+
+There are 3 fairly interesting (but random sounding) words here, our tree model has picked up on:
+
+* Elf
+* Skywalker
+* School
+
+All of these belong to the the regular Movie Details class, according to the tree's scoring. The rest of the words are fairly noisy, as with the other tools we have used thus far, and re-enforce the idea that we should have taken out noisy words, including "sh-tty", out of the dataset, because it is a giveway and not only does not help us interpret the model's predictive power, but the noise winds up filling the feature matrix, such that making a distinction on potentially more interesting signals becomes blurry. However, handling stop words is an extremely manual, unscalable process, when we are dealing with a corpus of over 15,000 words, and this analysis is naturally rather retrospective and the insight useful mostly in terms of consideration for future iteration.
+
+Further, as we see with these gini scores, and with the importance weights extracted from our Random Forest model (which are not significantly different that distribution merely by word frequencies, it appears), the predictive power of each individual word overall is very small. Worse, each time we run a different model, the samples chosen as key features appear to be rather random, with earlier models picking up on different words as more predictive, such as "wonder woman". Again, the predictive power of each of these as as signal individually appears rather weak.
+
+### Conclusions
 
 We chose to keep our data composition simple and train primarily on our joint title-post (selftext) text field, as well as the post sentiment score, to predict the target (which, recall, was to determine the subreddit a post is likely to have come from). As we saw, details, such as post length and the number of comments or posts per author were barely distinguishable between the classes.
 
